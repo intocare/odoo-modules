@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- override the automatically generated list view for courses -->
+		<record model="ir.ui.view" id="pubsub_type_tree_view">
+			<field name="name">pubsub.tree</field>
+			<field name="model">pubsub.type</field>
+			<field name="arch" type="xml">
+				<tree string="Type Tree">
+					<field name="type" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Overwrite type form view -->
+		<record model="ir.ui.view" id="pubsub_type_form_view">
+			<field name="name">pubsub.form</field>
+			<field name="model">pubsub.type</field>
+			<field name="arch" type="xml">
+				<form string="Type Form">
+					<sheet>
+						<group>
+							<field name="type" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

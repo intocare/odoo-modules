@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Overwrite headerfield form view -->
+		<record model="ir.ui.view" id="pubsub_headerfield_form_view">
+			<field name="name">pubsub.form</field>
+			<field name="model">pubsub.headerfield</field>
+			<field name="arch" type="xml">
+				<form string="Headerfield Form">
+					<sheet>
+						<group>
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Overwrite header form view -->
+		<record model="ir.ui.view" id="pubsub_header_form_view">
+			<field name="name">pubsub.form</field>
+			<field name="model">pubsub.header</field>
+			<field name="arch" type="xml">
+				<form string="Header Form">
+					<sheet>
+						<group>
+							<field name="field_id"/>
+							<field name="value"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

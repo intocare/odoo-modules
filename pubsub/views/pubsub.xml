@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- PubSub form -->
+		<record model="ir.ui.view" id="pubsub_form_view">
+			<field name="name">pubsub.form</field>
+			<field name="model">pubsub.subscription</field>
+			<field name="arch" type="xml">
+				<form string="Pubsub Form">
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="url"/>
+						</group>
+						<notebook>
+							<page string="Description">
+								<field name="description"/>
+							</page>
+							<page string="Headers">
+								<field name="header_ids">
+									<tree string="Registered headers" editable="bottom">
+										<field name="field_id" />
+										<field name="value" />
+									</tree>
+								</field>
+							</page>
+							<page string="Types">
+								<field name="type_ids">
+									<tree string="Registered types" editable="bottom">
+										<field name="type" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- override the automatically generated list view for courses -->
+		<record model="ir.ui.view" id="pubsub_tree_view">
+			<field name="name">pubsub.tree</field>
+			<field name="model">pubsub.subscription</field>
+			<field name="arch" type="xml">
+				<tree string="PubSub Tree">
+					<field name="name" />
+					<field name="url" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- window action -->
+		<record model="ir.actions.act_window" id="pubsub_list_action">
+			<field name="name">PubSub</field>
+			<field name="res_model">pubsub.subscription</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Create the first subscription</p>
+			</field>
+		</record>
+
+		<!-- `base.menu_custom` is the `Settings > Technical` menu -->
+		<menuitem id="pubsub_menu" name="PubSub" parent="base.menu_custom" action="pubsub_list_action"/>
+	</data>
+</openerp>
